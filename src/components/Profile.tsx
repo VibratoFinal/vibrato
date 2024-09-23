@@ -43,7 +43,7 @@ const Profile = () => {
   return (
     <div>
       {isLoggedIn ? (
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 justify-end">
           <img
             src={profileImageUrl}
             alt="Profile"
@@ -55,7 +55,7 @@ const Profile = () => {
           </button>
         </div>
       ) : (
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 justify-end">
           <button onClick={handleLogin} className="text-gray_dark">
             로그인
           </button>

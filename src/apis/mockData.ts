@@ -29,6 +29,8 @@ export interface ReviewResponse {
   comment_id: number;
   created_at: string;
   updated_at: string;
+  liked: number;
+  comments: string[];
 }
 
 export const reviewDummyData: ReviewResponse[] = [
@@ -43,6 +45,8 @@ export const reviewDummyData: ReviewResponse[] = [
     comment_id: 1001,
     created_at: "2023-09-20T12:00:00Z",
     updated_at: "2023-09-21T12:00:00Z",
+    liked: 0,
+    comments: [],
   },
   {
     review_id: 2,
@@ -54,6 +58,8 @@ export const reviewDummyData: ReviewResponse[] = [
     comment_id: 1002,
     created_at: "2023-09-21T10:30:00Z",
     updated_at: "2023-09-22T12:30:00Z",
+    liked: 0,
+    comments: [],
   },
   {
     review_id: 3,
@@ -65,6 +71,8 @@ export const reviewDummyData: ReviewResponse[] = [
     comment_id: 1003,
     created_at: "2023-09-22T08:15:00Z",
     updated_at: "2023-09-22T09:15:00Z",
+    liked: 0,
+    comments: [],
   },
   {
     review_id: 4,
@@ -76,6 +84,8 @@ export const reviewDummyData: ReviewResponse[] = [
     comment_id: 1004,
     created_at: "2023-09-23T13:45:00Z",
     updated_at: "2023-09-23T14:45:00Z",
+    liked: 0,
+    comments: [],
   },
   {
     review_id: 5,
@@ -87,6 +97,8 @@ export const reviewDummyData: ReviewResponse[] = [
     comment_id: 1005,
     created_at: "2023-09-24T09:20:00Z",
     updated_at: "2023-09-24T10:20:00Z",
+    liked: 0,
+    comments: [],
   },
 ];
 

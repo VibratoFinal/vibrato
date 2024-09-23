@@ -1,6 +1,6 @@
 const Navigation = () => {
   return (
-    <nav className="flex space-x-4 text-gray_dark">
+    <nav className="flex text-gray_dark justify-around">
       <a href="chart" className="hover:text-coral">
         차트
       </a>

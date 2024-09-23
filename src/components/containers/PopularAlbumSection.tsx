@@ -11,13 +11,13 @@ const PopularAlbumSection = () => {
     fetchAlbums();
   }, []);
   return (
-    <aside className="col-span-4 p-4">
+    <aside className="col-span-4 p-4 bg-white">
       <a href="chart" className="text-xl font-bold mb-4">
         인기 앨범 ＞
       </a>
 
       {albums.map((album) => (
-        <div key={album.id} className="shadow-xl p-4 rounded-md mb-4">
+        <div key={album.id} className="shadow-xl p-4 rounded-md mb-4 my-4">
           <div className="flex flex-grow items-center">
             <img
               src={album.album_image}

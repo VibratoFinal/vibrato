@@ -14,12 +14,12 @@ export const getToken = () => {
 };
 
 export const getNickname = () => {
-    const nickname = localStorage.getItem('nickname');
+    const nickname = localStorage.getItem('nickname') ? localStorage.getItem('nickname') : "기본 닉네임";
     return nickname;
 };
 
 export const getImageURL = () => {
-    const imageURL = localStorage.getItem('imageURL');
+    const imageURL = localStorage.getItem('imageURL') ? localStorage.getItem('imageURL') : "";
     return imageURL;
 };
 
@@ -57,6 +57,8 @@ export const useAuthStore = create<StoreState>((set) => ({
         setToken(token);
         setNickname(nickname);
         setImageURL(imageURL);
+        set({nickname: getNickname() || "기본 닉네임",});
+        set({profileImageUrl: getImageURL() || ""});
     },
     storeLogout: () => {
         set({ isLoggedIn: false });

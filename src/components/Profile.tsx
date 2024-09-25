@@ -51,8 +51,13 @@ const Profile: React.FC = () => {
     e.preventDefault();
     
     try {
-      await createUserWithEmailAndPassword(auth, signupEmail, signupPassword);
-      await signup({ email: signupEmail, password: signupPassword, image_id: 1, nickname: signupNickname });
+      const userCredential = await createUserWithEmailAndPassword(auth, signupEmail, signupPassword);
+      const user = userCredential.user;
+      const idToken = await user.getIdToken()
+      console.log(idToken);
+
+      // await signup({ email: signupEmail, password: signupPassword, profileImageId: 1, nickname: signupNickname, idToken });
+      await signup({ profileImageId: 1, nickname: signupNickname, idToken });
       alert("회원가입 성공");
       closeModal(); // 모달 닫기
     } catch (error) {
@@ -74,10 +79,13 @@ const Profile: React.FC = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password); // 입력된 이메일과 비밀번호 사용
       const user = userCredential.user;
-      const uid = user.uid;
+      // const uid = user.uid;
+      const idToken = await user.getIdToken()
+      console.log(idToken, "logined")
 
       // 헤더에 표시될 닉네임, 이미지 받아오기
-      const userInfo = await getUserInfo({ uid });
+      // const userInfo = await getUserInfo({ uid, token: idToken });
+      const userInfo = await getUserInfo({ token: idToken });
       // setNickname(userInfo.nickname);
       // setProfileImageUrl(userInfo.image_URL);
 
@@ -117,6 +125,14 @@ const Profile: React.FC = () => {
 
   const closeModal = () => {
     setShowModal(false);
+    if (modalType === "login") {
+      setEmail("");
+      setPassword("");
+    } else {
+      setSignupEmail("");
+      setSignupPassword("");
+      setSignupNickname("");
+    }
     setModalType("");
   };
 

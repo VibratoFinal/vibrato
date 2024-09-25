@@ -9,4 +9,12 @@ export default defineConfig({
       svgrOptions: {},
     }),
   ],
+  server: {
+    proxy: {
+      '/auth': {
+        target: 'http://43.203.226.45:3000',
+        changeOrigin: true,
+      },
+    },
+  },
 });
